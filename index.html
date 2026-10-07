@@ -1,1 +1,57 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nisado Barber Shop</title>
+<style>
+body{margin:0;background:#0b0a0d;color:#fff;font-family:Arial,sans-serif}
+main{max-width:560px;margin:auto;padding:30px 18px 45px;text-align:center}
+.logo{width:130px;height:130px;margin:35px auto 20px;border-radius:50%;display:grid;place-items:center;background:#17111f;box-shadow:0 0 45px #6d43ad55;font:bold 70px Georgia}
+.eyebrow{font-size:11px;letter-spacing:4px;color:#c9bdd8}h1{font:56px Georgia;margin:12px 0}
+p{color:#aaa4af;line-height:1.6}.btn{display:flex;align-items:center;justify-content:center;min-height:52px;margin:10px 0;border-radius:15px;text-decoration:none;color:#fff;font-weight:bold;background:linear-gradient(135deg,#6d43ad,#8d62d0);border:1px solid #ffffff1a}
+.secondary{background:#ffffff0d}.wa{background:#25d366}
+.card{margin-top:20px;padding:22px;border-radius:22px;background:#151218;border:1px solid #ffffff1a;text-align:left}
+h2{font:25px Georgia}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:block;font-size:12px;margin:12px 0 6px;color:#cfc9d3}
+input,select{width:100%;height:48px;border-radius:12px;border:1px solid #ffffff1a;background:#0f0d12;color:#fff;padding:0 12px;box-sizing:border-box}
+button{width:100%;border:0;padding:16px;border-radius:14px;color:#fff;font-weight:bold;margin-top:16px;cursor:pointer}
+.address{padding:16px;border:1px solid #ffffff1a;border-radius:16px;background:#0f0d12}
+footer{margin-top:30px;color:#68636d;font-size:10px;letter-spacing:3px}
+</style>
+</head>
+<body>
+<main>
+<div class="logo">N</div>
+<div class="eyebrow">BARBER SHOP · KALAMPAKA</div>
+<h1>Nisado</h1>
+<p>Κλείσε το ραντεβού σου γρήγορα ή βρες μας στον χάρτη.</p>
+<a class="btn" href="#booking">✂️ ΚΛΕΙΣΕ ΡΑΝΤΕΒΟΥ</a>
+<a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=K.+Oikonomou+1%2C+Kalabaka%2C+Greece" target="_blank">📍 ΒΡΕΣ ΜΑΣ ΣΤΟΝ ΧΑΡΤΗ</a>
 
+<section id="booking" class="card">
+<h2>Κλείσε ραντεβού</h2>
+<form id="f">
+<label>ΟΝΟΜΑ</label><input id="name" required placeholder="Το όνομά σου">
+<div class="grid"><div><label>ΗΜΕΡΟΜΗΝΙΑ</label><input id="date" type="date" required></div><div><label>ΩΡΑ</label><input id="time" type="time" required></div></div>
+<label>ΥΠΗΡΕΣΙΑ</label><select id="service"><option>Κούρεμα</option><option>Γένια</option><option>Κούρεμα + Γένια</option><option>Άλλο</option></select>
+<label>ΤΗΛΕΦΩΝΟ (προαιρετικό)</label><input id="phone" type="tel" placeholder="69…">
+<button class="wa" type="submit">💬 ΣΤΕΙΛΕ ΤΟ ΡΑΝΤΕΒΟΥ ΣΤΟ WHATSAPP</button>
+</form>
+<p style="font-size:11px;text-align:center">Το WhatsApp ανοίγει με έτοιμο μήνυμα.</p>
+</section>
+
+<section class="card">
+<h2>Πού θα μας βρεις</h2>
+<div class="address"><b>📍 Κ. Οικονόμου 1</b><br>Καλαμπάκα, Ελλάδα</div>
+<a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=K.+Oikonomou+1%2C+Kalabaka%2C+Greece" target="_blank">ΑΝΟΙΓΜΑ GOOGLE MAPS →</a>
+<div style="padding-top:10px">📞 <a href="tel:+302432076283" style="color:#fff">2432076283</a></div>
+</section>
+<footer>NISADO BARBER SHOP</footer>
+</main>
+<script>
+const d=document.getElementById('date');d.min=new Date().toISOString().slice(0,10);
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const date=document.getElementById('date').value;const msg='Γεια σας Nisado!%0A%0AΘα ήθελα να κλείσω ραντεβού.%0A✂️ Υπηρεσία: '+encodeURIComponent(document.getElementById('service').value)+'%0A📅 Ημερομηνία: '+encodeURIComponent(date)+'%0A🕐 Ώρα: '+encodeURIComponent(document.getElementById('time').value)+'%0A👤 Όνομα: '+encodeURIComponent(document.getElementById('name').value)+'%0A📞 Τηλέφωνο: '+encodeURIComponent(document.getElementById('phone').value);location.href='https://wa.me/302432076283?text='+msg}
+</script>
+</body>
+</html>
